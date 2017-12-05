@@ -14,7 +14,7 @@ public class Movie {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(length = 300)
+	@Column(length = 300, nullable = false)
 	private String title;
 	private Date releaseDate;
 	private Long budget;
