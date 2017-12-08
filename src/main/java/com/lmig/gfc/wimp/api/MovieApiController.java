@@ -50,7 +50,7 @@ public class MovieApiController {
 
 	@DeleteMapping("{id}")
 	public Movie delete(@PathVariable Long id) {
-		// Get the dog from the database so I can return it later.
+		// Get the movie from the database so I can return it later.
 		Movie movie = movies.findOne(id);
 		// Delete the dog from the database (in this case, just set the value in the
 		// array list to null).
