@@ -34,8 +34,5 @@ public class MovieView {
 		return movie.getDistributor();
 	}
 	
-//	public List<Actor> getActors() {
-//		return movie.getActors();
-//	}
 
 }

@@ -25,7 +25,7 @@ public class Movie {
 
 	@ManyToMany
 	private List<Actor> actors;
-	
+
 	public Movie() {
 	}
 

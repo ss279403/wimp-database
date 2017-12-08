@@ -1,6 +1,5 @@
 package com.lmig.gfc.wimp.api;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -20,14 +19,14 @@ import com.lmig.gfc.wimp.services.ActorRepository;
 @RestController
 @RequestMapping("/api/actors")
 public class ActorApiController {
-	
+
 	private ActorRepository actors;
-	
+
 	public ActorApiController(ActorRepository actors) {
 		this.actors = actors;
 
 	}
-	
+
 	@GetMapping("")
 	public List<Actor> getAll() {
 		return actors.findAll();
@@ -40,13 +39,10 @@ public class ActorApiController {
 	}
 
 	@GetMapping("{id}")
-	public List<ActorView> getOne(@PathVariable Long id) {
-		List<Actor> stars = actors.findAll();
-		ArrayList<ActorView> actorViews = new ArrayList<ActorView>();
-			for (Actor actor : stars) {
-				actorViews.add(new ActorView(actor));
-				}
-			return actorViews;
+	public ActorView getOne(@PathVariable Long id) {
+		Actor star = actors.findOne(id);
+
+		return new ActorView(star);
 	}
 
 	@PutMapping("{id}")
@@ -58,13 +54,13 @@ public class ActorApiController {
 	@DeleteMapping("{id}")
 	public Actor delete(@PathVariable Long id) {
 		// Get the actor from the database so I can return it later.
-			Actor actor = actors.findOne(id);
+		Actor actor = actors.findOne(id);
 		// Delete the dog from the database (in this case, just set the value in the
 		// array list to null).
-			actors.delete(id);
+		actors.delete(id);
 
 		// return the dog I just deleted.
-			return actor;
+		return actor;
 	}
 
 }
