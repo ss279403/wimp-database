@@ -29,7 +29,7 @@ public class Actor {
 	
 	@OneToMany (mappedBy = "actor")
 	private List<Award> awards;
-
+ 
 	
 	@ManyToMany (mappedBy = "actors")
 	@JsonIgnore

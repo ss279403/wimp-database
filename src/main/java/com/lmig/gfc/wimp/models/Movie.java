@@ -23,7 +23,7 @@ public class Movie {
 	@Column(length = 500, nullable = false)
 	private String distributor;
 
-	@ManyToMany
+	@ManyToMany 
 	private List<Actor> actors;
 
 	public Movie() {
