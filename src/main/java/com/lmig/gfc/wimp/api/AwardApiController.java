@@ -26,11 +26,10 @@ public class AwardApiController {
 	@PostMapping("")
 	public Actor create(@PathVariable Long actorId, @RequestBody Award award) {
 		Actor actor = actors.findOne(actorId);
-		if (!actor.getAwards().contains(award)) {
-			actor.getAwards().add(award);
-			award.setActor(actor);
-			awards.save(award);
-		}
+
+		award.setActor(actor);
+		awards.save(award);
+
 		return actor;
 	}
 }

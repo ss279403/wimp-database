@@ -27,7 +27,7 @@ public class WimpApiController {
 	public Movie create(@PathVariable Long movieId, @RequestBody Long actorId) {
 		Actor actor = actors.findOne(actorId);
 		Movie movie = movies.findOne(movieId);
-		if (!actor.getMovies().contains(movie)) {
+		if (!movie.getActors().contains(actor)) {
 		movie.getActors().add(actor);
 		movies.save(movie);
 		}
